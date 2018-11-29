@@ -31,12 +31,4 @@ apache2service:
 
 'cat /tmp/commands.sql|sudo mysql -u root':
   cmd.run:
-    - unless: "echo 'show databases'|sudo mariadb -u root|grep '^lamp$'"
-
-/var/www/html/test.php:
-  file.managed:
-    - source: salt://lamp-salt/test.php
-
-test-installation:
-  cmd.run:
-    - name: 'http localhost/test.php'
+    - unless: "echo 'show databases'|sudo mysql -u root|grep '^lamp$'"

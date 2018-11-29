@@ -1,3 +1,3 @@
-CREATE USER 'lamp_minion'@'localhost';
-CREATE DATABASE lamp_database;
-GRANT USAGE ON lamp_database.* TO 'lamp_minion';
+CREATE USER 'minion_lamp'@'localhost' IDENTIFIED BY '34iwacsn';
+CREATE DATABASE lamp_database114;
+GRANT USAGE ON lamp_database114.* TO 'minion_lamp' IDENTIFIED BY '34iwacsn';
