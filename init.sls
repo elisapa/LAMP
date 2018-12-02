@@ -24,11 +24,20 @@ apache2service:
      - file: /etc/apache2/mods-enabled/userdir.conf
      - file: /etc/apache2/mods-enabled/userdir.load
 
+/var/www/html/first-test.php:
+  file.managed:
+    - source: salt://LAMP/first-test.php
+
+'http --headers localhost/first-test.php':
+  cmd.run
+
 /tmp/commands.sql:
   file.managed:
     - mode: 600
-    - source: salt://lamp-salt/commands.sql
+    - source: salt://LAMP/commands.sql
 
 'cat /tmp/commands.sql|sudo mysql -u root':
   cmd.run:
     - unless: "echo 'show databases'|sudo mysql -u root|grep '^lamp$'"
+
+
